@@ -4,12 +4,14 @@
     box-sizing: border-box;
 }
 
-.body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
+body {
+    background: pink;
+}
+
+header {
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
 }
 
 .logo {
@@ -30,9 +32,15 @@
     color: #333;
 }
 
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .navbar ul {
     list-style: none;
-    background-color: whitesmoke;
+    background-color: pink;
     padding: 0px;
     margin: 0px;
     overflow: hidden;
@@ -56,9 +64,11 @@
 
 .header {
     text-align: center;
+    width: 100%;
+    justify-content: space-around;
     display: flex;
     padding: 50px 0;
-    background-color: #fff;
+    background-color: pink;
     margin-bottom: 20px;
 }
 
@@ -71,6 +81,74 @@
 .introduction {
     text-align: center;
     padding: 20px;
-    background-color: #fff;
+    background-color: pink;
     margin-bottom: 20px;
+}
+
+.introduction h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#featured-animals {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: pink;
+    margin-bottom: 20px;
+}
+
+#featured-animals img {
+    width: 200px;
+    background-color: pink;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    gap: 20px;
+}
+
+.see-all-button {
+    display: block;
+    width: 150px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: aqua;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.see-all-button a {
+    color: black;
+    text-decoration: none;
+}
+
+.see-all-button a:hover {
+    background-color: #ddd(0, 0%, 10%);
+}
+
+.see-all-button li {
+    float: left;
+}
+
+footer {
+    background-color: pink;
+}
+
+#quick-links {
+    align-items: left;
+    justify-content: left;
+    gap: 20px;
+    padding: 20px;
+}
+
+#quick-links a {
+    color: black;
+    text-decoration: none;
+    display: block;
 }
