@@ -40,8 +40,8 @@ The aim is to connect strays and sheltered animals with homes through an open an
 # Design Aesthetic & Branding 
 # Colour Palette
 •	Primary: soft blue- trust, calm, reliability
-•	Secondary: Warm orange-energy, warmth, friendliness.
-•	Neutral: light grey for background, dark grey for text
+•	Secondary: light green, warmth, friendliness.
+•	Neutral: light  white for background, dark grey/black for text
 # Font Choices & Hierarchy
 •	Heading: Rale way or Poppins
 •	Body text: open sans or lato
@@ -120,6 +120,27 @@ Ubuntu Rescue/
 2. Create branch: `git checkout -b feature/update-images`.
 3. Commit changes: `git commit -m "Fix image paths"`.
 4. Push & PR.
+## Features Added in Part2
+- Added improved improved navigation between pages.
+- Improved website layout and design.
+- Added responsive design for mobile and desktop.
+- Fixed errors identified from Part 1 Feedback.
+- Updated content for better user experience.
+## Technologies Used 
+- HTML
+- CSS
+- GitHub foe version control
+
+## Changelog
+- Updated homepage, shop, adopt, contact us, about us content
+- Improved website styling and layout
+- Corrected navigation issues
+- Added responsive design features
+- Updated README documentation
+## Mobile Responsive
+- SmartPhone Home=(<phone home.png>)
+- Laptop Home= (<laptop home.png>)
+- Tablet Home= (<tablet homepage.png>)
 
 # Reference 
 •	Animals TLC, 2024. Animal TLC website. Available at: https://animaltlc.com/  (Accessed: 01 April 2026)
