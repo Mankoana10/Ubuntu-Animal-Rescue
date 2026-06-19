@@ -370,6 +370,95 @@
             color: #000;
         }
         
+        .add-to-cart-btn {
+            background-color: grey;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+            margin-top: 10px;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+        
+        .add-to-cart-btn:hover {
+            background-color: darkslategrey;
+            transform: translateY(-2px);
+        }
+        
+        .add-to-cart-btn.added {
+            background-color: #28a745;
+        }
+        
+        .cart-section {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+        
+        .cart-item-info h4 {
+            margin: 0 0 5px 0;
+        }
+        
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .qty-btn {
+            background: #ddd;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        .remove-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        #cart-total {
+            text-align: right;
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #333;
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 60px 20px;
+            color: #777;
+        }
+        
+        #checkout-btn {
+            display: block;
+            margin: 20px 0 0 auto;
+            padding: 14px 40px;
+            background-color: #28a745;
+        }
+        
+        #checkout-btn:hover {
+            background-color: #218838;
+        }
+        
         .our-mission {
             padding: 20px;
             background-color: lightcyan;
