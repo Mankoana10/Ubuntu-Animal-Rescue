@@ -64,6 +64,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
+
+
         document.addEventListener('DOMContentLoaded', () => {
                 console.log("Adoption page loaded");
 
