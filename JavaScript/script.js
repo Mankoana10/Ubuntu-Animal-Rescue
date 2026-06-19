@@ -188,7 +188,7 @@ function updateCartBadge() {
         container.innerHTML = "";
 
         if (cart.length === 0) {
-            container.innerHTML = "<p class=\"empty-cart-msg\">Your cart is empty. Visit the Shop to find something special! 🐾</p>";
+            container.innerHTML = "<p class=\"empty-cart-msg\">Your cart is empty 🛒.  Visit the Shop to find something special! 🐾</p>";
             const checkoutBtn = document.getElementById("checkout-btn");
             if (checkoutBtn) checkoutBtn.style.display = "none";
             removeCartSummary();
@@ -267,71 +267,90 @@ function updateCartBadge() {
 // Run on every page so the nav badge is always in sync
 updateCartBadge();
 
+// ── Shop search (Shop.html) ───────────────────────────────────
+(function shopSearch() {
+    const input = document.getElementById('shop-search');
+    if (!input) return; // not on Shop.html
+
+    const resultsEl = document.getElementById('shop-search-results');
+    const cards = Array.from(document.querySelectorAll('.shop-item'));
+
+    function getCardText(card) {
+        const h3 = card.querySelector('h3');
+        const desc = card.querySelector('p');
+        const priceP = Array.from(card.querySelectorAll('p')).find((p) => /price/i.test(p.textContent)) || card.querySelectorAll('p')[1];
+
+        return [h3 ? h3.textContent : '', desc ? desc.textContent : '', priceP ? priceP.textContent : '']
+            .filter(Boolean)
+            .join(' ')
+            .toLowerCase();
+    }
+
+    function filter() {
+        const q = (input.value || '').trim().toLowerCase();
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+            const text = card.dataset.searchText || (card.dataset.searchText = getCardText(card));
+            const matches = !q || text.includes(q);
+            card.style.display = matches ? '' : 'none';
+            if (matches) visibleCount += 1;
+        });
+
+        if (!resultsEl) return;
+        if (!q) {
+            resultsEl.textContent = '';
+        } else if (visibleCount === 0) {
+            resultsEl.textContent = 'No results found.';
+        } else {
+            resultsEl.textContent = `Showing ${visibleCount} result${visibleCount === 1 ? '' : 's'}.`;
+        }
+    }
+
+    input.addEventListener('input', filter);
+    filter();
+})();
+
 // ── 7. AdoptionForm.html: friendlier validation feedback ─────
-(function adoptionFormEnhancements() {
-    const form = document.querySelector("form");
-    if (!form) return;
+document.getElementById('adoptionForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // 1. Stop page reload - this makes it AJAX
 
-    // Make the Cancel button ask for confirmation before navigating away,
-    // so users don't lose typed info by accident.
-    const cancelBtn = form.querySelector('input[type="button"][value="Cancel"]');
-    if (cancelBtn) {
-        cancelBtn.onclick = null; // remove inline handler to control it from here
-        cancelBtn.addEventListener("click", () => {
-            const confirmLeave = confirm("Are you sure you want to cancel? Your information will not be saved.");
-            if (confirmLeave) {
-                window.location.href = "Adoption.html";
+    const form = e.target;
+    const formData = new FormData(form);
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const successMsg = document.getElementById('successMsg');
+
+    // Disable button so user can't double-click
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    // 2. AJAX submit with fetch - no page reload
+    fetch("https://formsubmit.co/mankoanamarcia@gmail.com", {
+            method: "POST",
+            body: formData,
+            headers: {
+                'Accept': 'application/json' // FormSubmit needs this for AJAX
             }
+        })
+        .then(response => {
+            if (response.ok) {
+                // 3. Success - show message instead of alert
+                successMsg.textContent = "Thank you for your application! We will review it and get back to you soon 🐾";
+                successMsg.style.color = "green";
+                form.reset(); // clear form
+            } else {
+                throw new Error('Server error');
+            }
+        })
+        .catch(error => {
+            // 4. Error handling - show on page, not alert
+            successMsg.textContent = "Oops! Something went wrong. Please try again.";
+            successMsg.style.color = "red";
+            console.error('Error:', error);
+        })
+        .finally(() => {
+            // Re-enable button
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Application';
         });
-    }
-
-    // Replace inline submit alert with a nicer confirmation + prevent
-    // actual submission (no backend exists yet).
-    const submitBtn = form.querySelector('input[type="submit"]');
-    if (submitBtn) {
-        submitBtn.removeAttribute("onclick");
-        form.addEventListener("submit", (e) => {
-            e.preventDefault();
-            alert("Thank you for your application! We will review it and get back to you soon.");
-            form.reset();
-        });
-    }
-})();
-
-// ── 8. ContactUs.html: Leaflet map of the shelter's location ─
-// Leaflet (leaflet.css/js) is already linked in ContactUs.html's <head>,
-// so no Google API key is needed — this draws a free OpenStreetMap-based
-// map centred on Polokwane, South Africa with a marker for the shelter.
-(function initContactMap() {
-    const mapTarget = document.getElementById("map");
-    if (!mapTarget || typeof L === "undefined") return; // not on ContactUs.html, or Leaflet not loaded
-
-    // Polokwane, South Africa coordinates
-    const shelterLat = -23.9045;
-    const shelterLng = 29.4688;
-
-    const map = L.map("map").setView([shelterLat, shelterLng], 13);
-
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: '&copy; OpenStreetMap contributors',
-        maxZoom: 19,
-    }).addTo(map);
-
-    L.marker([shelterLat, shelterLng])
-        .addTo(map)
-        .bindPopup("<strong>Ubuntu Animal Rescue</strong><br>Polokwane, South Africa")
-        .openPopup();
-})();
-
-// ── 9. Generic image fallback ────────────────────────────────
-// If any animal/shop/team photo fails to load (broken local path),
-// swap in a neutral placeholder so the layout doesn't break.
-(function imageFallback() {
-    document.querySelectorAll("img").forEach((img) => {
-        img.addEventListener("error", function handler() {
-            this.removeEventListener("error", handler);
-            this.src =
-                "https://via.placeholder.com/300x200/cce7e7/2c6e6e?text=Image+Unavailable";
-        });
-    });
-})();
+});

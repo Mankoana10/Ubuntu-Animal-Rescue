@@ -126,19 +126,37 @@ Ubuntu Rescue/
 - Added responsive design for mobile and desktop.
 - Fixed errors identified from Part 1 Feedback.
 - Updated content for better user experience.
+## Features added in Part 3
+- Added
 ## Technologies Used 
 - HTML
 - CSS
-- GitHub foe version control
+- GitHub for version control
+- Netlify for hosting
 
 ## Changelog
+1.Part 1
+- Create  6 html files which are home,adopt,contact us, shop,about us and adoption form
+- Added photos of animals
+- Created a form for application
+- Did more research about adoption websites
+2. Part 2
 - Updated homepage, shop, adopt, contact us, about us content
 - Improved website styling and layout
 - Corrected navigation issues
 - Added responsive design features
 - Updated README documentation
+3. Part 3
+- Created 1 new html file which is cart
+- created 2 js files
+- added more images
+- edited the files
+- add 'add to cart' button on shop
+- added a map to the website 
+- used netlify to host my website
+
 ## Mobile Responsive
-- SmartPhone Home=(<phone home.png>)
+- SmartPhone Home=(<Images/phone home.png>)
 - Laptop Home= (<laptop home.png>)
 - Tablet Home= (<tablet homepage.png>)
 
@@ -150,9 +168,10 @@ Ubuntu Rescue/
 •	Font Awesome, 2012. Icons- Envelope. Available at:  https://fontawesome.com/icons/envelope (Accessed:01 April 2026) 
 •	Font Awesome, 2012. Icons- Envelope. Available at:   https://fontawesome.com/icons/location (Accessed at:29 March 2026)
 •	Font Awesome, 2012. Icons-Phone. Available at: https://fontawesom.com/icons/phone (Accessed: 01 April 2026)
-•	
+•	Netlify,2024.Netlify.Available at:  https://wwww.netlify.com (Accessed: 19 June 2026)
 •	Soshanguve Animal Shelter and Edu center, 2023.Soshanguve Animal Shelter. Available at: https://www.soshanguveanimalshelter.org.za (Accessed at:29 March 2026)
 •	Vector Stock, 2007. No picture vector images & illustrations. Available at: https://www.vectorstock.com/royalty-free-vectors/no-picture-vectors (Accessed: 16 April 2026)
+
 
 
 ## License
