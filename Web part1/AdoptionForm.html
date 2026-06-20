@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoption Form</title>
+    <link rel="stylesheet" href="../Web part1/CSS/Style.css">
+
+</head>
+
+<body>
+    <!--Header-->
+    <header>
+        <!-- This is the small logo at the top-->
+        <div class="logo">
+            <img src="c:\Users\manko\Downloads\logo rescue.png" alt="Logo">
+            <h4>Ubuntu Animal Rescue</h4>
+        </div>
+        <!-- This is the navigation bar-->
+        <nav class=navbar>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Adoption.html">Adopt</a></li>
+                <li><a href="Shop.html">Shop</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="ContactUs.html">Contact Us</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="header6">
+        <h1>Adoption Application Form</h1>
+        <p>Please fill out the form below to apply for adopting a pet from Ubuntu Animal Rescue. We will review your application and get back to you as soon as possible.</p>
+    </div>
+    <form action="https://your-backend.com/submit" method="POST">
+        <div class="form-group">
+            <label for="name">Full Name:</label><br>
+            <input type="name" required><br><br>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address:</label><br>
+            <input type="email" required><br><br>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number:</label><br>
+            <input type="number" required><br><br>
+        </div>
+        <div class="form-group">
+            <label for="address">Home Address:</label><br>
+            <textarea required></textarea><br><br>
+        </div>
+        <div class="form-group">
+            <label for="pet">Which pet are you interested in adopting?</label><br>
+            <input type="text" required><br><br>
+            <div class="form-group">
+                <label for="experience">Do you have any previous experience with pets?</label><br>
+                <textarea required></textarea><br><br>
+            </div>
+            <div class="form-group">
+                <label for="lifestyle">Please describe your lifestyle and how you plan to care for your new pet:</label><br>
+                <textarea required></textarea><br><br>
+            </div>
+            <div class="form-group">
+                <label for="references">Please provide two references who can speak to your suitability as a pet owner:</label><br>
+                <textarea required></textarea><br><br>
+            </div>
+            <div class="form-group">
+                <label for="additional">Is there anything else you would like us to know about you or your living situation?</label><br>
+                <textarea required></textarea><br><br>
+            </div>
+            <div class="form-group">
+                <label for="agreement">I agree to the terms and conditions of adopting a pet from Ubuntu Animal Rescue:</label>
+                <input type="checkbox" required><br><br>
+            </div>
+            <div class="form-group">
+                <!-- This is the submit button for the form-->
+                <button type="submit">Submit Application</button>
+                <p id="succesMsg"></p>
+            </div>
+            <div class="form-group">
+                <!-- This is the reset button for the form-->
+                <input type="reset" value="Reset Form">
+            </div>
+            <div class="form-group">
+                <!-- This is the cancel button for the form-->
+                <input type="button" value="Cancel" onclick="window.location.href='Adoption.html'">
+            </div>
+
+    </form>
+    <script src="../Web part1/JavaScript/script.js"></script>
+</body>
+<!--This is the footer-->
+<footer>
+    <div class="footer-content">
+        <!--This is the small logo-->
+        <div class="logo">
+            <img src="c:\Users\manko\Downloads\logo.png" alt="Logo">
+            <h4>Ubuntu Animal Rescue</h4>
+        </div>
+
+        <div id="quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <a href="ContactUs.html">Contact Us</a>
+                <br><a href="AboutUs.html">About Us</a>
+            </ul>
+        </div>
+        <div class="social-media">
+            <h4>Follow Us</h4>
+            <ul>
+                <a href="https://www.facebook.com/UbuntuAnimalRescue">Facebook</a>
+                <br><a href="https://www.instagram.com/UbuntuAnimalRescue">Instagram</a>
+                <br><a href="https://www.twitter.com/UbuntuAnimalRescue">Twitter</a>
+            </ul>
+        </div>
+        <div id="get-involved">
+            <h4>Get Involved</h4>
+            <ul>
+                <a href="Adoption.html">Adopt</a>
+                <br><a href="Shop.html">Shop</a>
+            </ul>
+        </div>
+    </div>
+
+    <p>&copy; 2026 Ubuntu Animal Rescue. All rights reserved.</p>
+</footer>
+
+</html>
